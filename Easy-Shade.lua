@@ -200,20 +200,24 @@ end
 --⁡⁢⁣⁢---------------------------------------⁡--
 
 local function refreshDialogDisplayData()
-  colorDialog:modify{ id="foreground", colors = {foregroundColor} }
-  colorDialog:modify{ id="background", colors = {backgroundColor} }
-  colorDialog:modify{ id="shadeIntensityFactorSlider", value = shadeIntensityFactor }
-  colorDialog:modify{ id="hue", colors = hueColors }
-  colorDialog:modify{ id="positiveShading", colors = basePositiveShadeColors }
-  colorDialog:modify{ id="negativeShading", colors= baseNegativeShadeColors }
-  colorDialog:modify{ id="brightness", colors = brightnessColors }
-  colorDialog:modify{ id="saturation", colors = saturationColors }
-  colorDialog:modify{ id="harmony1PositiveShading", colors = harmony1PositiveShadeColors }
-  colorDialog:modify{ id="harmony1NegativeShading", colors = harmony1NegativeShadeColors }
-  colorDialog:modify{ id="harmony2PositiveShading", colors = harmony2PositiveShadeColors }
-  colorDialog:modify{ id="harmony2NegativeShading", colors = harmony2NegativeShadeColors }
-  colorDialog:modify{ id="harmony3PositiveShading", colors = harmony3PositiveShadeColors }
-  colorDialog:modify{ id="harmony3NegativeShading", colors = harmony3NegativeShadeColors }
+  local settings = {
+    {id="shadeIntensityFactorSlider", value=shadeIntensityFactor},
+    {id="hue", colors=hueColors},
+    {id="positiveShading", colors=basePositiveShadeColors},
+    {id="negativeShading", colors=baseNegativeShadeColors},
+    {id="brightness", colors=brightnessColors},
+    {id="saturation", colors=saturationColors},
+    {id="harmony1PositiveShading", colors=harmony1PositiveShadeColors},
+    {id="harmony1NegativeShading", colors=harmony1NegativeShadeColors},
+    {id="harmony2PositiveShading", colors=harmony2PositiveShadeColors},
+    {id="harmony2NegativeShading", colors=harmony2NegativeShadeColors},
+    {id="harmony3PositiveShading", colors=harmony3PositiveShadeColors},
+    {id="harmony3NegativeShading", colors=harmony3NegativeShadeColors}
+  }
+
+  for _, setting in ipairs(settings) do
+    colorDialog:modify(setting)
+  end
 end
 
 
@@ -274,8 +278,6 @@ local function initializeColorDialog()
   end
   }
 
-  :shades(createShadeComponent("foreground", "Foreground", {foregroundColor}))
-  :shades(createShadeComponent("background", "Background", {backgroundColor}))
   :slider {
       id = "shadeIntensityFactorSlider",
       label = "Shade Intensity",
