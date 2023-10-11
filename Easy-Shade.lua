@@ -20,7 +20,7 @@
 -- Clicking on Colors:
 --    • Left Click: Designate the selected color as your foreground color.
 --    • Right Click: Designate the selected color as your background color.
---    • Middle Click: Appoint the clicked color as foreground and reformulate shades based on it.
+--    • Middle Click: Designate the clicked color as foreground AND recalculate shades based on it.
 -- Get Button:
 --    • Activate this to update base colors, drawing from Aseprite's current foreground and background colors.
 --      The shading palette regenerates automatically.
